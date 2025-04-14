@@ -1,0 +1,606 @@
+@font-face {
+  font-family: Gilroy;
+  src: url(fonts/Gilroy-Medium.ttf);
+}
+
+@font-face {
+  font-family: Gilroy;
+  src: url(fonts/Gilroy-Bold.ttf);
+  font-weight: bold;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.header {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 32px 0;
+  border-bottom: 2px solid #828282;
+}
+
+.menu ul {
+  list-style: none;
+  font-size: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  font-family: Gilroy, sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  color: #828282;
+  font-weight: bold;
+}
+
+.menu ul li a:hover {
+  color: #070707;
+}
+
+/* Стили для меню бургера */
+.burger__checkbox {
+  position: absolute;
+  visibility: hidden;
+  float: right;
+}
+.burger {
+  position: relative;
+  float: right;
+  z-index: 1;
+  cursor: pointer;
+  display: block;
+  border: none;
+  background: transparent;
+  width: 40px;
+  height: 26px;
+}
+.burger::before,
+.burger::after {
+  content: '';
+  left: 0;
+  position: absolute;
+  display: block;
+  width: 80%;
+  height: 4px;
+  border-radius: 10px;
+  background: #000;
+}
+
+.burger::before {
+  top: 0;
+  box-shadow: 0 11px 0 #000;
+  transition: box-shadow 0.3s 0.15s, top 0.3s 0.15s, transform 0.3s;
+}
+.burger::after {
+  bottom: 0;
+  transition: bottom 0.3s 0.15s, transform 0.3s;
+}
+.burger__checkbox:checked + .burger::before {
+  top: 11px;
+  transform: rotate(45deg);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0);
+  transition: box-shadow 0.15s, top 0.3s, transform 0.3s 0.15s;
+}
+.burger__checkbox:checked + .burger::after {
+  bottom: 11px;
+  transform: rotate(-45deg);
+  transition: bottom 0.3s, transform 0.3s 0.15s;
+}
+.menu__list {
+  top: 0;
+  right: 0;
+  position: fixed;
+  display: none;
+  gap: 12px;
+  padding: 42px 0;
+  margin: 0;
+  background: #f6f6f6;
+  list-style-type: none;
+  transition: 0.3s;
+  width: 200px;
+}
+
+.menu__item {
+  display: block;
+  padding: 8px;
+  color: #828282;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  font-family: Gilroy, sans-serif;
+  font-weight: bold;
+}
+.menu__item:hover {
+  color: #070707;
+}
+
+/* Конец стилей для бургера */
+
+.me {
+  margin: 0 auto;
+  max-width: 80%;
+  padding: 40px 0 104px 0;
+}
+
+.me__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.me__info p {
+  align-self: center;
+}
+
+.me__title {
+  width: 180px;
+  font-family: Gilroy, sans-serif;
+  font-size: 47px;
+  line-height: 1;
+  font-weight: bold;
+  color: #070707;
+  margin-bottom: 31px;
+}
+
+.me__text {
+  width: 200px;
+  font-family: Gilroy, sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  color: #070707;
+}
+
+.me__image {
+  display: flex;
+  justify-content: center;
+}
+
+.me__image__adaptive img {
+  text-align: center;
+}
+
+#about__me {
+  background-color: #f6f6f6;
+}
+
+.about__me__title {
+  font-family: Gilroy, sans-serif;
+  font-size: 34px;
+  line-height: 1;
+  color: #070707;
+  padding-top: 120px;
+  text-align: center;
+}
+
+.about__me__text {
+  font-family: Gilroy, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #070707;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px 0 107px 0;
+  width: 485px;
+}
+
+.about__me__text p {
+  margin-bottom: 20px;
+}
+
+.about__me__text p:last-child {
+  margin-bottom: 0;
+}
+
+.skills {
+  padding: 91px 0 110px 0;
+}
+
+.skills__title {
+  font-family: Gilroy, sans-serif;
+  font-size: 34px;
+  line-height: 1;
+  color: #070707;
+  text-align: center;
+  margin-bottom: 69px;
+}
+
+.skills__images {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.skills__images__info {
+  max-width: 166px;
+  display: grid;
+  margin-right: 90px;
+}
+
+.skills__images__info:last-child {
+  margin-right: 0;
+}
+
+.skills__images__info img {
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.skills__images__info p {
+  font-family: Gilroy, sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: bold;
+  color: #828282;
+  text-align: center;
+}
+
+#potrfolio {
+  padding: 112px 0 96px 0;
+  background-color: #f6f6f6;
+}
+
+.portfolio__title {
+  font-family: Gilroy, sans-serif;
+  font-size: 34px;
+  line-height: 1;
+  color: #070707;
+  text-align: center;
+}
+
+.portfolio__project {
+  display: grid;
+  justify-content: center;
+  font-size: 0;
+}
+
+.potfolio__project__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.potfolio__project__item img {
+  max-width: 100%;
+  margin: 99px 0 44px 0;
+}
+
+.potfolio__project__item img:first-child {
+  margin-top: 47px;
+}
+
+.potfolio__project__item a {
+  text-decoration: none;
+  font-family: Gilroy, sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  color: #070707;
+  text-align: center;
+  cursor: pointer;
+}
+
+.potfolio__project__item a:hover {
+  text-decoration: underline solid #070707;
+  text-underline-offset: 5px;
+}
+
+.project__app {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.app {
+  max-width: 100%;
+}
+
+.app img {
+  width: 80% ;
+  align-self: center;
+}
+
+.more__projects {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+.more__projects p {
+  text-decoration: none;
+  font-family: Gilroy, sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  color: #828282;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 15px;
+  align-self: center;
+}
+
+.more__projects svg {
+  fill: #828282;
+  width: 50px;
+  height: 35px;
+  margin-right: 5px;
+  align-self: center;
+}
+
+.github__link {
+  margin-right: 0;
+  text-decoration: none;
+  cursor: pointer;
+  align-self: center;
+}
+
+.github__link:hover {
+  fill: #070707;
+  align-self: center;
+}
+
+.contacts__title {
+  font-family: Gilroy, sans-serif;
+  font-size: 34px;
+  line-height: 1;
+  color: #070707;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.contacts__action {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 35px 0;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.contacts__action a {
+  text-decoration: none;
+  cursor: pointer;
+  align-self: center;
+}
+
+.contacts__icon {
+  fill: #828282;
+  width: 100px;
+  height: 65px;
+  margin-right: 5px;
+  align-self: center;
+}
+
+.contacts__icon:hover {
+  fill: #070707;
+}
+
+.contacts__mail {
+  text-decoration: none;
+  font-family: Gilroy, sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  color: #070707;
+  text-align: center;
+  font-weight: bold;
+  align-self: center;
+  padding-bottom: 45px;
+}
+
+/* Медиа запросы */
+@media (min-width: 1000px) {
+  .burger {
+    display: none;
+  }
+
+  .menu__list ul {
+    display: none;
+  }
+
+  .me__image__adaptive {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  body {
+    display: grid;
+    width: 100%;
+  }
+  .menu {
+    display: none;
+  }
+
+  .header {
+    border: none;
+    width: 100%;
+  }
+
+  .burger {
+    margin-right: 15px;
+    float: right;
+    position: relative;
+  }
+
+  .me__info {
+    display: grid;
+  }
+  .me__text {
+    margin-left: 0;
+    padding-bottom: 20px;
+  }
+  .me__image {
+    display: none;
+  }
+
+  .skills__images {
+    display: grid;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .skills__images__info {
+    margin-right: 0;
+  }
+
+  .portfolio__project {
+    display: grid;
+  }
+
+  .potfolio__project__item img {
+    padding: 0 15px;
+  }
+
+  .project__app {
+    display: grid;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .container,
+  .header,
+  .me,
+  .about__me__text {
+    max-width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+    float: right;
+    margin-right: 15px;
+  }
+
+  .me__info {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .me__text {
+    width: 40%;
+    padding-bottom: 20px;
+  
+  }
+
+  .me__image {
+    display: none;
+  }
+
+  .me__image__adaptive {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .about__me__title {
+    padding-top: 50px;
+  }
+  .about__me__text {
+padding-bottom: 25px;
+  }
+
+  .skills__images {
+    display: grid;
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .skills__images__info {
+    margin-right: 0;
+  }
+
+  .portfolio__project,
+  .project__app {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    justify-items: center;
+  }
+
+  .potfolio__project__item img {
+    padding: 0 10px;
+  }
+
+  .more__projects {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .contacts__action {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .contacts__icon {
+    width: 60px;
+    height: 40px;
+  }
+}
+
+/* === ТЕЛЕФОН: до 480px === */
+@media (max-width: 480px) {
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .me__title {
+    font-size: 36px;
+    margin-bottom: 16px;
+    
+  }
+
+  .about__me__title,
+  .skills__title,
+  .portfolio__title,
+  .contacts__title {
+    font-size: 28px;
+  }
+
+  .me__text,
+  .potfolio__project__item a,
+  .menu__item,
+  .contacts__mail {
+    font-size: 16px;
+  }
+
+  .skills {
+    padding: 40px 0 60px;
+  }
+
+  .portfolio__project {
+    gap: 20px;
+  }
+
+  .burger {
+   margin-top: 15px;
+  }
+
+
+  .potfolio__project__item img {
+    margin: 40px 0 20px;
+  }
+
+  .contacts__action {
+    padding: 20px 0;
+  }
+}
